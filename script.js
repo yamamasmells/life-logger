@@ -3,12 +3,6 @@
    PART 1
    Core State / Input / Combo Engine
 ============================================================ */
-alert("1");
-
-document.body.insertAdjacentHTML(
-    "afterbegin",
-    "<div style='background:yellow;padding:10px'>JS started</div>"
-);
 window.onerror = function(message, source, line, column){
 
     document.body.insertAdjacentHTML(
@@ -32,8 +26,9 @@ window.onerror = function(message, source, line, column){
         `
     );
 
-    return false;
 };
+alert("1");
+
 const DEFAULT_STATE = {
     players: {
         top: {
