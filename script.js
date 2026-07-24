@@ -4,6 +4,11 @@
    Core State / Input / Combo Engine
 ============================================================ */
 alert("1");
+
+document.body.insertAdjacentHTML(
+    "afterbegin",
+    "<div style='background:yellow;padding:10px'>JS started</div>"
+);
 window.onerror = function(message, source, line, column){
 
     document.body.insertAdjacentHTML(
