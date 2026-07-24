@@ -4,6 +4,31 @@
    Core State / Input / Combo Engine
 ============================================================ */
 alert("1");
+window.onerror = function(message, source, line, column){
+
+    document.body.insertAdjacentHTML(
+        "afterbegin",
+        `
+        <div style="
+            position:fixed;
+            top:0;
+            left:0;
+            right:0;
+            background:red;
+            color:white;
+            padding:20px;
+            z-index:99999;
+            font-size:18px;
+            ">
+            ERROR:<br>
+            ${message}<br>
+            Line: ${line}:${column}
+        </div>
+        `
+    );
+
+    return false;
+};
 const DEFAULT_STATE = {
     players: {
         top: {
