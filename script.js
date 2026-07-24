@@ -3,6 +3,11 @@
    PART 1
    Core State / Input / Combo Engine
 ============================================================ */
+document.addEventListener("DOMContentLoaded", () => {
+
+    // EVERYTHING currently in your JS file goes here
+
+
 window.onerror = function(message, source, line, column){
 
     document.body.insertAdjacentHTML(
@@ -27,7 +32,7 @@ window.onerror = function(message, source, line, column){
     );
 
 };
-alert("1");
+
 
 const DEFAULT_STATE = {
     players: {
@@ -897,4 +902,4 @@ if ("serviceWorker" in navigator) {
         console.log("Life Ledger is ready offline");
     });
 }
-
+});
