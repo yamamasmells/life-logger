@@ -893,7 +893,34 @@ function updateSettingsLife(amount){
     alert(`Starting life set to ${amount}`);
 
 }
+let wakeLock = null;
 
+async function requestWakeLock() {
+  try {
+    if ('wakeLock' in navigator && wakeLock === null) {
+      wakeLock = await navigator.wakeLock.request('screen');
+
+      wakeLock.addEventListener('release', () => {
+        wakeLock = null;
+        console.log('Wake Lock released');
+      });
+
+      console.log('Wake Lock active');
+    }
+  } catch (err) {
+    console.error('Wake Lock failed:', err);
+  }
+}
+
+// Request when page loads
+window.addEventListener('load', requestWakeLock);
+
+// Re-request when returning to the app
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') {
+    requestWakeLock();
+  }
+});
 // Register PWA Service Worker
 
 if ("serviceWorker" in navigator) {
